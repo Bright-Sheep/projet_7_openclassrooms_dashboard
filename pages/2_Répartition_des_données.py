@@ -6,6 +6,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from variable import link
+
 st.set_page_config(page_title="Répartition", page_icon="📈")
 
 # On initialise les paramètres globaux au cas où on recharge la page
@@ -29,7 +31,7 @@ id_client = st.sidebar.number_input("Sélectionnez l'ID du client",min_value=0,v
 st.session_state.my_id_1 = id_client
 
 # On fait la requête à l'url
-url = f'http://127.0.0.1:5000/id_data_needed/?SK_ID_CURR={id_client}&NB_FEATURE={nb_params}'
+url = f'{link}/id_data_needed/?SK_ID_CURR={id_client}&NB_FEATURE={nb_params}'
 
 # On sélectionne si on veut les données des crédits refusés ou acceptés
 direction = st.radio('Selectionner une comparaison :', ('Crédit accepté','Crédit refusé'))

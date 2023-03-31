@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from variable import link
 
 st.set_page_config(
     page_title="Autorisation de crédit",  # => Quick reference - Streamlit
@@ -21,7 +22,7 @@ id_client = st.sidebar.number_input('Id du client',min_value=0,value=st.session_
 st.session_state.my_id_2 = id_client
 
 # On fait la requête à l'url
-url = f'http://127.0.0.1:5000/id_local_params/?SK_ID_CURR={id_client}&NB_FEATURE={nb_params}'
+url = f'{link}/id_local_params/?SK_ID_CURR={id_client}&NB_FEATURE={nb_params}'
 response = requests.get(url).json()["local_weight"]
 
 # On vérifie que la requête a abouti et on annonce si le crédit a été refusé ou accepté

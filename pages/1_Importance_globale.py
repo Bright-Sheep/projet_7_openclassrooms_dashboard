@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import matplotlib.pyplot as plt
+from variable import link
 
 st.set_page_config(
     page_title="Importance globale",
@@ -10,7 +11,7 @@ st.markdown("# Importance des caractéristiques globales")
 st.markdown("Quel est le poid des caractéristiques dans le modèle utilisé.")
 
 # On fait la requête url
-url = 'http://127.0.0.1:5000/id_global_params/'
+url = f'{link}/id_global_params/'
 
 # On affiche le poids des caractéristiques globales
 weight = requests.get(url).json()["global_weight"]
