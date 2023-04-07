@@ -19,7 +19,7 @@ feature = requests.get(url).json()["feature"]
 
 with plt.style.context("ggplot"):
     fig = plt.figure(figsize=(8,12))
-    plt.barh(range(len(weight)), weight, color=["red" if coef<0 else "green" for coef in weight])
+    plt.barh(range(len(weight)), weight, color=["tab:blue" if coef<0 else "tab:orange" for coef in weight])
     plt.yticks(range(len(weight)), feature);
     plt.title("Poids des caractéristiques")
 st.pyplot(fig)
